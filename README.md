@@ -303,6 +303,7 @@ Performance counters in this version of LogMagic **only work on Windows** and on
 |[Azure Application Insights](doc/impl/azure-appinsights.md)|Emits telemetry into [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/).|
 |[Azure Service Fabric](doc/impl/azure-servicefabric.md)|Integrates with [Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/) by building correlating proxies, enrichers, and emitting cluster health events|
 |[ASP.NET Core](doc/impl/aspnetcore.md)|Provides a custom middleware that automatically logs requests.|
+|[Azure Functions v2](doc/impl/azfn.md)|Integrates with [Azure Functions v2](https://docs.microsoft.com/en-gb/azure/azure-functions/) Runtime.|
 
 
 ### Built-in enrichers

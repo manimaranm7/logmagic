@@ -32,6 +32,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "impl", "impl", "{6FB79E25-3BFA-4433-AD23-E0CF33A88C2C}"
 	ProjectSection(SolutionItems) = preProject
 		doc\impl\aspnetcore.md = doc\impl\aspnetcore.md
+		doc\impl\azfn.md = doc\impl\azfn.md
 		doc\impl\azure-appinsights.md = doc\impl\azure-appinsights.md
 		doc\impl\azure-servicefabric.md = doc\impl\azure-servicefabric.md
 		doc\impl\disk-file.md = doc\impl\disk-file.md
@@ -57,6 +58,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogMagic.Proxy", "src\LogMagic.Proxy\LogMagic.Proxy.csproj", "{00633190-30A0-445C-A905-211FE3ABF254}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogMagic.Microsoft.ServiceFabric", "src\LogMagic.Microsoft.ServiceFabric\LogMagic.Microsoft.ServiceFabric.csproj", "{AFA25145-D43F-49DD-B409-38753FB9A4A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogMagic.Microsoft.Azure.Functions", "src\LogMagic.Microsoft.Azure.Functions\LogMagic.Microsoft.Azure.Functions.csproj", "{F50970EF-6036-41CA-9602-0623D09DDF6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +103,10 @@ Global
 		{AFA25145-D43F-49DD-B409-38753FB9A4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFA25145-D43F-49DD-B409-38753FB9A4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFA25145-D43F-49DD-B409-38753FB9A4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50970EF-6036-41CA-9602-0623D09DDF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50970EF-6036-41CA-9602-0623D09DDF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50970EF-6036-41CA-9602-0623D09DDF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50970EF-6036-41CA-9602-0623D09DDF6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +123,7 @@ Global
 		{33F2EE47-C8AC-4505-ADFD-F335045C5BD0} = {0D2BC941-7E3A-4A1A-B5DA-A7F3AB32C785}
 		{00633190-30A0-445C-A905-211FE3ABF254} = {0D2BC941-7E3A-4A1A-B5DA-A7F3AB32C785}
 		{AFA25145-D43F-49DD-B409-38753FB9A4A1} = {0D2BC941-7E3A-4A1A-B5DA-A7F3AB32C785}
+		{F50970EF-6036-41CA-9602-0623D09DDF6F} = {0D2BC941-7E3A-4A1A-B5DA-A7F3AB32C785}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A9360B6-B177-4333-8D5A-3493AD9F3B55}
