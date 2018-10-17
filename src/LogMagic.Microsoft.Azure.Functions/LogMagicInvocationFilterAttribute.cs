@@ -14,6 +14,11 @@ namespace Microsoft.Azure.WebJobs
    {
       private static readonly ILog log = L.G(typeof(LogMagicInvocationFilterAttribute));
 
+      /// <summary>
+      /// Logs request (ON by default)
+      /// </summary>
+      public bool LogRequests { get; set; } = true;
+
       static LogMagicInvocationFilterAttribute()
       {
          //we could configure AI automatically here, but it requires a reference to Application Insights library
@@ -45,7 +50,10 @@ namespace Microsoft.Azure.WebJobs
                      "FunctionName", executingContext.FunctionName,
                      "FunctionInstanceId", executingContext.FunctionInstanceId.ToString()))
                   {
-                     log.Request(executingContext.FunctionName, time.ElapsedTicks, gex);
+                     if (LogRequests)
+                     {
+                        log.Request(executingContext.FunctionName, time.ElapsedTicks, gex);
+                     }
                   }
 
                }
