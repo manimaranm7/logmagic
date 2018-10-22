@@ -22,4 +22,9 @@ test_script:
     dotnet test test/LogMagic.Test
 artifacts:
 - path: src/**/*.nupkg
-deploy: off
+deploy:
+- provider: NuGet
+  api_key:
+    secure: hQlxhZb6uDjtZz4V+DZyAqjxnGjXqEokO/tckU14RDUP/AxTkFnX869pNsXCv+Ab
+  on:
+    branch: master
