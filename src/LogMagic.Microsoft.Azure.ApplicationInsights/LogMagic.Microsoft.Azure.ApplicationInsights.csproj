@@ -29,8 +29,8 @@
       <DefineConstants>$(DefineConstants);NETFULL</DefineConstants>
    </PropertyGroup>
    <ItemGroup>
-      <PackageReference Include="Microsoft.ApplicationInsights" Version="2.7.2" />
-      <PackageReference Include="Microsoft.ApplicationInsights.PerfCounterCollector" Version="2.7.2" />
+      <PackageReference Include="Microsoft.ApplicationInsights" Version="2.8.1" />
+      <PackageReference Include="Microsoft.ApplicationInsights.PerfCounterCollector" Version="2.8.1" />
       <ProjectReference Include="..\LogMagic\LogMagic.csproj" />
    </ItemGroup>
    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">

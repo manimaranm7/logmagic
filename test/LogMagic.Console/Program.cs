@@ -38,16 +38,15 @@ namespace LogMagic.Console
          }
 
          C.ReadKey();
-         return;
 
-         while (true)
+         /*while (true)
          {
             //Basics(5);
 
             ApplicationMap();
 
             Thread.Sleep(TimeSpan.FromSeconds(1));
-         }
+         }*/
       }
 
       private static void Basics(int maxObjects)

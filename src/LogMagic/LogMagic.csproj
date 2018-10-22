@@ -31,7 +31,7 @@
       <WarningsAsErrors />
    </PropertyGroup>
    <ItemGroup>
-      <PackageReference Include="netbox" Version="2.0.1" />
+      <PackageReference Include="netbox" Version="2.1.5" />
       <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
    </ItemGroup>
    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.4' Or '$(TargetFramework)' == 'netstandard1.6' ">
@@ -61,7 +61,7 @@
       <Reference Include="Microsoft.CSharp" />
    </ItemGroup>
    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-      <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.5.0"/>
+      <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.5.0" />
    </ItemGroup>
    <ItemGroup>
       <DotNetCliToolReference Include="dotnet-housework" Version="0.0.7" />

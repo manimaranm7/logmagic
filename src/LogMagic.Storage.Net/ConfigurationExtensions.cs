@@ -1,6 +1,6 @@
 ﻿using LogMagic.Storage.Net;
 using Storage.Net.Blob;
-using Storage.Net.Table;
+using Storage.Net.KeyValue;
 using System;
 
 namespace LogMagic
@@ -26,12 +26,20 @@ namespace LogMagic
          return configuration.Custom(new BlobStorageLogWriter(blobStorage, documentId, format));
       }
 
-      public static ILogConfiguration StorageTables(this IWriterConfiguration configuration,
-         ITableStorage tableStorage)
+      /// <summary>
+      /// Initialises logging to key-value storage
+      /// </summary>
+      public static ILogConfiguration StorageKeyValue(this IWriterConfiguration configuration,
+         IKeyValueStorage tableStorage)
       {
          throw new NotImplementedException();
       }
 
+      /// <summary>
+      /// Initialises logging to work with message publisher
+      /// </summary>
+      /// <param name="configuration"></param>
+      /// <returns></returns>
       public static ILogConfiguration StorageMessagePublisher(this IWriterConfiguration configuration)
       {
          throw new NotImplementedException();
