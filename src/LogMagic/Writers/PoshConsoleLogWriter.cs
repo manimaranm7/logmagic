@@ -98,6 +98,25 @@ namespace LogMagic.Writers
          }
 
          Console.WriteLine();
+
+         LogProperties(e);
+      }
+
+      private void LogProperties(LogEvent e)
+      {
+         if (e.Properties.Count == 0)
+            return;
+
+         int longestPropName = e.Properties.Keys.Max(k => k.Length);
+         foreach(KeyValuePair<string, object> prop in e.Properties)
+         {
+            Console.Write("  |");
+            string name = prop.Key.PadLeft(longestPropName);
+            Cg.Write(name, ParameterColour);
+            Console.Write(": ");
+            Cg.Write(prop.Value?.ToString(), MessageColour);
+            Console.WriteLine();
+         }
       }
 
       private void LogError(LogEvent e)
