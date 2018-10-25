@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using LogMagic.Enrichers;
 using LogMagic.Tokenisation;
 
@@ -31,7 +34,7 @@ namespace LogMagic.Tokenisation
       /// <summary>
       /// Formats log event for text representation, not including any properties. Error is included though.
       /// </summary>
-      public static string Format(LogEvent e, FormattedString format = null)
+      public static string Format(LogEvent e, FormattedString format, bool includeProperties)
       {
          if (format == null) format = DefaultFormat;
 
@@ -87,6 +90,21 @@ namespace LogMagic.Tokenisation
             }
          }
 
+         if(includeProperties && e.Properties.Count > 0)
+         {
+            int longestPropertyName = e.Properties.Max(p => p.Key.Length);
+
+            IEnumerable<string> lines = e.Properties
+               .Where(p => !TextFormatter.DoNotPrint(p.Key))
+               .Select(p => $"  {p.Key.PadLeft(longestPropertyName)}: {p.Value}");
+
+            foreach (string line in lines)
+            {
+               b.Append(Environment.NewLine);
+               b.Append(line);
+            }
+         }
+
          return b.ToString();
       }
 
@@ -113,6 +131,11 @@ namespace LogMagic.Tokenisation
             default:
                return "I";
          }
+      }
+
+      internal static bool DoNotPrint(string propertyName)
+      {
+         return propertyName == KnownProperty.Error;
       }
    }
 }

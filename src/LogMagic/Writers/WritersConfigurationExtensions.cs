@@ -11,33 +11,33 @@ namespace LogMagic
       /// <summary>
       /// Writes to system console
       /// </summary>
-      public static ILogConfiguration Console(this IWriterConfiguration configuration)
+      public static ILogConfiguration Console(this IWriterConfiguration configuration, bool logProperties = true)
       {
-         return configuration.Custom(new ConsoleLogWriter(null));
+         return configuration.Custom(new ConsoleLogWriter(null, logProperties));
       }
 
       /// <summary>
       /// Writes to system console
       /// </summary>
-      public static ILogConfiguration Console(this IWriterConfiguration configuration, string format)
+      public static ILogConfiguration Console(this IWriterConfiguration configuration, string format, bool logProperties = true)
       {
-         return configuration.Custom(new ConsoleLogWriter(format));
+         return configuration.Custom(new ConsoleLogWriter(format, logProperties));
       }
 
       /// <summary>
       /// Writes to posh system console i.e. with nice colours
       /// </summary>
-      public static ILogConfiguration PoshConsole(this IWriterConfiguration configuration)
+      public static ILogConfiguration PoshConsole(this IWriterConfiguration configuration, bool logProperties = true)
       {
-         return configuration.Custom(new PoshConsoleLogWriter(null));
+         return configuration.Custom(new PoshConsoleLogWriter(null, logProperties));
       }
 
       /// <summary>
       /// Writes to posh system console i.e. with nice colours
       /// </summary>
-      public static ILogConfiguration PoshConsole(this IWriterConfiguration configuration, string format)
+      public static ILogConfiguration PoshConsole(this IWriterConfiguration configuration, string format, bool logProperties = true)
       {
-         return configuration.Custom(new PoshConsoleLogWriter(format));
+         return configuration.Custom(new PoshConsoleLogWriter(format, logProperties));
       }
 
       /// <summary>

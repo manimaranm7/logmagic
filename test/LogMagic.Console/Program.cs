@@ -20,6 +20,7 @@ namespace LogMagic.Console
          //initialise
          L.Config
             .WriteTo.PoshConsole()
+            .WriteTo.Console()
             .WriteTo.AzureApplicationInsights("13d9faf0-e96d-46ce-81b1-d8303c798765",
                new WriterOptions
                {
@@ -31,6 +32,8 @@ namespace LogMagic.Console
                .WindowsCounter("Machine CPU Load (%)", "Processor", "% Processor Time", "_Total")
             .CollectPerformanceCounters
                .WithSamplingInterval(TimeSpan.FromSeconds(10));
+
+         log.Trace("unexpected", new Exception("test"));
 
          using (L.Context("one", "two"))
          {

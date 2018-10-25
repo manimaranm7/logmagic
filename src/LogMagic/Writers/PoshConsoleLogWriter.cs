@@ -16,7 +16,7 @@ namespace LogMagic.Writers
       private static readonly ConcurrentDictionary<string, string> SourceNameToShortName = new ConcurrentDictionary<string, string>();
       private static object ColourLock = new object();
       private readonly FormattedString _format;
-
+      private readonly bool _logProperties;
       private const ConsoleColor SeparatorColour = ConsoleColor.DarkGray,
                                  SourceColour = ConsoleColor.DarkGray,
                                  MessageColour = ConsoleColor.White,
@@ -36,7 +36,7 @@ namespace LogMagic.Writers
       /// <summary>
       /// Constructs and instance of this class
       /// </summary>
-      public PoshConsoleLogWriter(string format)
+      public PoshConsoleLogWriter(string format, bool logProperties)
       {
          _format = format == null ? TextFormatter.DefaultFormat : FormattedString.Parse(format, null);
 
@@ -46,6 +46,7 @@ namespace LogMagic.Writers
          };
 
          Console.BackgroundColor = ConsoleColor.Black;
+         _logProperties = logProperties;
       }
 
       /// <summary>
@@ -99,7 +100,10 @@ namespace LogMagic.Writers
 
          Console.WriteLine();
 
-         LogProperties(e);
+         if (_logProperties)
+         {
+            LogProperties(e);
+         }
       }
 
       private void LogProperties(LogEvent e)
@@ -108,7 +112,7 @@ namespace LogMagic.Writers
             return;
 
          int longestPropName = e.Properties.Keys.Max(k => k.Length);
-         foreach(KeyValuePair<string, object> prop in e.Properties)
+         foreach(KeyValuePair<string, object> prop in e.Properties.Where(p => !TextFormatter.DoNotPrint(p.Key)))
          {
             Console.Write("  |");
             string name = prop.Key.PadLeft(longestPropName);
