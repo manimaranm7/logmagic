@@ -63,10 +63,6 @@ namespace LogMagic
             {
                //there is nowhere else to log the error as we are the logger!
                Console.WriteLine("could not write: " + ex);
-
-#if NETFULL
-               System.Diagnostics.Trace.TraceError("fatal submit error: " + ex);
-#endif
             }
          }
       }

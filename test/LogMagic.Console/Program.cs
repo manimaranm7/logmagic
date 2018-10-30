@@ -18,7 +18,7 @@ namespace LogMagic.Console
       public static void Main(string[] args)
       {
          //initialise
-         L.Config
+         /*L.Config
             .WriteTo.PoshConsole()
             .WriteTo.Console()
             //.WriteTo.WindowsSpeech("fuck!", true)
@@ -33,6 +33,11 @@ namespace LogMagic.Console
                .WindowsCounter("Machine CPU Load (%)", "Processor", "% Processor Time", "_Total")
             .CollectPerformanceCounters
                .WithSamplingInterval(TimeSpan.FromSeconds(10));
+               */
+
+         L.Config.WriteTo.Trace();
+
+         log.Trace("test1");
 
          log.Trace("unexpected", new InvalidOperationException());
 

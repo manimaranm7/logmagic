@@ -90,7 +90,7 @@ namespace LogMagic.Tokenisation
             }
          }
 
-         if(includeProperties && e.Properties.Count > 0)
+         if(includeProperties && e.Properties?.Count > 0)
          {
             int longestPropertyName = e.Properties.Max(p => p.Key.Length);
 
