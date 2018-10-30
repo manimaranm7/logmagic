@@ -21,7 +21,7 @@ namespace LogMagic.Console
          L.Config
             .WriteTo.PoshConsole()
             .WriteTo.Console()
-            .WriteTo.WindowsSpeech("fuck!", true)
+            //.WriteTo.WindowsSpeech("fuck!", true)
             .WriteTo.AzureApplicationInsights("13d9faf0-e96d-46ce-81b1-d8303c798765",
                new WriterOptions
                {

@@ -108,8 +108,10 @@ namespace LogMagic.Writers
 
       private void LogProperties(LogEvent e)
       {
-         if (e.Properties?.Count == 0)
+         if (e.Properties == null || e.Properties.Count == 0)
+         {
             return;
+         }
 
          int longestPropName = e.Properties.Keys.Max(k => k.Length);
          foreach(KeyValuePair<string, object> prop in e.Properties.Where(p => !TextFormatter.DoNotPrint(p.Key)))
