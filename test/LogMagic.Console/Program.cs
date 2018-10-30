@@ -21,6 +21,7 @@ namespace LogMagic.Console
          L.Config
             .WriteTo.PoshConsole()
             .WriteTo.Console()
+            .WriteTo.WindowsSpeech("fuck!", true)
             .WriteTo.AzureApplicationInsights("13d9faf0-e96d-46ce-81b1-d8303c798765",
                new WriterOptions
                {
@@ -33,7 +34,9 @@ namespace LogMagic.Console
             .CollectPerformanceCounters
                .WithSamplingInterval(TimeSpan.FromSeconds(10));
 
-         log.Trace("unexpected", new Exception("test"));
+         log.Trace("unexpected", new InvalidOperationException());
+
+         log.Trace("test", new NullReferenceException());
 
          using (L.Context("one", "two"))
          {
